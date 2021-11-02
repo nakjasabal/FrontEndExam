@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+    #chatWindow{border:1px solid black;width:250px; height:300px; overflow:scroll;}
+    #chatMessage{width:201px; height:25px;}
+    #sendBtn{height:31px;position: relative;top:2px;left:-5px;}
+    .myMsg{text-align:right;}
+    </style>
+    <script>
+    function iii(){
+        var msg = document.getElementById("chatMessage").value;
+        var cwin = document.getElementById("chatWindow");
+        cwin.innerHTML += "<div>"+msg+"</div>";
+        msg.scrollTop = msg.scrollHeight;	
+    }
+    </script>
+    <button type="button" id="closeBtn">채팅종료</button>
+    <div id="chatWindow">
+        <div>안녕1</div>
+        <div class="myMsg">안녕2</div>
+        <div>안녕3</div>
+    </div>
+    <input type="text" id="chatMessage">
+    <button type="button" id="sendBtn" onclick="iii();">전송</button>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>B15Utilities.html</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<style>
+	div{border:1px solid red;}
+	.mybox {
+		display: inline-block;
+		width: 80px;
+		height: 80px;
+		margin: 6px;
+		border: 1px solid #000000;
+	}
+	.mybox2 {		 
+		width: 200px;
+		height: 200px;
+	}
+	</style>
+</head>
+<body>
+<div class="container">
+	<h2>Borders</h2>
+	<p>엘리먼트의 테두리를 방향에 따라 설정한다. </p> 
+	<div class="mybox"></div>
+	<div class="mybox border-0"></div>
+	<div class="mybox border-top-0 border-primary"></div>
+	<div class="mybox border-right-0 border-success"></div>
+	<div class="mybox border-bottom-0 border-danger"></div>
+	<div class="mybox border-left-0 border-warning"></div>
+
+	<h2>Float</h2>
+	<p>Float 속성부여 .float-right .float-left .clearfix</p> 
+	<div class="clearfix">
+		<div class="mybox float-left">Float left</div>
+		<div class="mybox float-right">Float right</div>
+	</div>
+
+	<h1>Horizontal Centering</h1>
+	<p>.mx-auto : 엘리먼트의 가운데 정렬</p>
+	<div class="mx-auto bg-warning" style="width:150px">Centered</div>
+
+
+	<h1>Width Utilities</h1>
+	<p>w-* : 엘리먼트의 가로크기</p>
+	<div class="w-25 bg-info">Width 25%</div>
+	<div class="w-50 bg-info">Width 50%</div>
+	<div class="w-75 bg-info">Width 75%</div>
+	<div class="w-100 bg-info">Width 100%</div>
+
+	<h1>Height Utilities</h1>
+	<p>h-* : 엘리먼트의 세로크기</p>
+	동일하므로 생략
+
+
+	<h1>Spacing Utilities</h1>
+	<p>padding or margin</p>
+	<!-- 
+		m - sets margin
+		p - sets padding
+
+		t - sets margin-top or padding-top
+		b - sets margin-bottom or padding-bottom
+		l - sets margin-left or padding-left
+		r - sets margin-right or padding-right
+
+		x - sets both padding-left and padding-right or margin-left and margin-right
+		y - sets both padding-top and padding-bottom or margin-top and margin-bottom
+	 -->
+	<div class="mybox2 pl-0 pr-2 py-5 bg-warning">
+		<div class="w-100 h-100 bg-primary"></div>
+	</div> 
+
+	<div class="mybox2 bg-info">
+		<div class="w-50 h-50 mt-3 ml-5 bg-danger"></div>
+	</div>
+ 
+	<div>padding없음</div>
+	<div class="p-3">padding-3</div>
+	<div class="p-5">padding-5</div>
+</div>
+</body>
+</html>

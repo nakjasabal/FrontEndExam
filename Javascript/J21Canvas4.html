@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //전역 변수
+        var canvas, context;
+
+        window.onload = function() {
+            canvas = document.getElementById("myCanvas");
+            context = canvas.getContext("2d");
+            context.lineWidth = document.getElementById("widthInput").value;
+            context.strokeStyle = document.getElementById("colorInput").value;
+
+            canvas.addEventListener("mousemove", function (e) { move(e) }, false);
+            canvas.addEventListener("mousedown", function (e) { down(e) }, false);
+            canvas.addEventListener("mouseup", function (e) { up(e) }, false);
+            canvas.addEventListener("mouseleave", function (e) { leave(e) }, false);
+        }
+
+        var startX = 0, startY = 0; dragging = false;
+        var prevX = 0, prevY = 0; // 마우스의 마지막 포인터 좌표
+        
+        function move(e) { // e는 MouseEvent 객체
+            var curX = e.offsetX;//마우스의 위치를 가져온다. 
+            var curY = e.offsetY;
+
+            if (!dragging) {
+                prevX = curX; prevY = curY;
+            }
+            context.beginPath();
+            context.moveTo(prevX, prevY);
+            context.lineTo(curX, curY);
+            context.stroke();
+            prevX = curX; prevY = curY;
+        }
+        function down(e){
+            startX = e.offsetX;
+            startY = e.offsetY;
+            dragging = true;
+        }
+        function up(e) {
+            dragging = false;
+            prevX = e.offsetX;
+            prevY = e.offsetY;
+        }
+        function leave(e) {
+            dragging = false;
+        }
+    </script>    
+</head>
+<body>
+    <h3>캔버스로 구현한 그림판</h3>
+    <hr>
+    선굵기 :<input type="number" id="widthInput" value="1" min="0" max="20" step="1" onchange="context.lineWidth=this.value">
+    선 색 : <input type="color" id="colorInput" value="#000000" onchange="context.strokeStyle=this.value">
+    <br><br>
+    <canvas id="myCanvas" style="background-color:aliceblue" width="500" height="400"></canvas>
+</body>
+</html>
