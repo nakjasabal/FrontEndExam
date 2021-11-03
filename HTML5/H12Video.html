@@ -45,6 +45,7 @@
             var currentSpan = document.getElementById("currenttime");
             var totalSpan = document.getElementById("totaltime");
 			video = document.getElementById("video");
+			video.volume = 0.5;
 			/*
 			video에 timeupdate 이벤트를 등록해준다. 총재생시간과 
 			실시간 재생시간을 얻어올수 있다. 재생이 될때 지속적으로 
@@ -52,9 +53,14 @@
 			*/
             video.addEventListener("timeupdate", function () {
 				//현재 재생시간 출력
-				currentSpan.innerHTML = video.currentTime;
+				currentSpan.innerHTML = timeShow(video.currentTime);
 				//전체 재생시간 출력
-                totalSpan.innerHTML = video.duration;
+                totalSpan.innerHTML = timeShow(video.duration);
+
+				//progress 태그에 오디오의 전체 재생시간을 설정한다. 
+				progress.max = video.duration;
+				//현재 재생시간을 설정한다. 
+				progress.value = video.currentTime;
             });
         }
         function play() {
@@ -75,22 +81,97 @@
 			//다시 재생시작
             video.play();
         }
+		function timeShow(seconds) { 
+			seconds = Math.round(seconds);
+			//3항 연산자를 이용하여 10보다 작을 경우 0을 붙이도록 처리 하였다. 
+			var h = parseInt(seconds / 3600);
+			var m = parseInt((seconds % 3600) / 60);
+			var s = seconds % 60;
+
+			var hour = (h < 10) ? '0'+h : h; 
+			var min =  (m < 10) ? '0'+m : m; 
+			var sec =  (s < 10) ? '0'+s : s; 
+			
+			return hour+":"+min+":"+sec;
+		}
+		function setVolumn(value){			
+			if (value == 0) {//0이면 음소거
+				video.muted = true;
+			}
+			else {
+				video.muted = false;//음소거해제
+				var nowVolume = video.volume;//현재 볼륨 가져오기
+
+				if(value==1){
+					nowVolume += 0.1;
+					video.volume = (nowVolume>1) ? 1 : nowVolume;
+				}
+				else{
+					nowVolume -= 0.1;
+					video.volume = (nowVolume < 0) ? 0 : nowVolume;
+				}
+			}
+		}
+		function setPlaybackRate(value){
+			if (value == 1) {
+				video.playbackRate += 0.25;
+			}
+			else {
+				video.playbackRate -= 0.25;
+			}			
+		}
+		function setTime(value){
+			if (value == 1) {
+				video.currentTime += 10;
+			}
+			else {
+				video.currentTime -= 10;
+			}			
+		}
 	</script>     
-	
+	<style>
+		div {
+			border: 1px solid red;
+			width: 300px;
+		}
+	</style>
 	<!-- video태그를 통해 영상을 출력한다. hidden속성에 의해 첫 로딩시에는
 	화면이 보이지 않는다.  -->
     <div>
 		<video id="video" width="300" height="200" 
-			src="./media/video.mp4" hidden></video>
+			src="./media/video.mp4" autoplay muted controls poster="./images/1.png"></video>
     </div>
+	<div>
+		<progress value="0" id="progress" style="width:300px;"></progress>
+	</div>
     <div>
-        <input type="button" value="재생하기" onclick="play();"/>
-        <input type="button" value="일시정지" onclick="stop()"/>
-        <input type="button" value="처음부터재생하기" onclick="start()"/>
-		<br/>
 		<!-- 현재 재생시간 및 전체 재생시간 출력되는 부분 -->
         <span id="currenttime"></span> / <span id="totaltime"></span>
-    </div>
+    </div>	
+	<input type="button" value="재생하기" onclick="play();" />
+	<input type="button" value="일시정지" onclick="stop()" />
+	<input type="button" value="처음부터재생하기" onclick="start()" />
+	<input type="button" value="볼륨+" onclick="setVolumn(1)" />
+	<input type="button" value="볼륨-" onclick="setVolumn(-1)" />
+	<input type="button" value="음소거" onclick="setVolumn(0)" />
+	<input type="button" value="재생속도+" onclick="setPlaybackRate(1)" />
+	<input type="button" value="재생속도-" onclick="setPlaybackRate(-1)" />
+	<input type="button" value="10초앞으로" onclick="setTime(1)" />
+	<input type="button" value="10초뒤로" onclick="setTime(-1)" />
 	
-</body>
+</body> 
 </html>
+<!-- 
+	https://iamawebdeveloper.tistory.com/102
+
+
+	브라우저의 소스 보기를 사용하면 b.mp4로 바뀐 모습이 나타납니다. 하지만 실제 재생해보면 에러가 발생할 수 있습니다. 이 때 어떻게 해결할 수 있을까요? 가장 중요한 부분은 load() 메소드를 사용하여 비디오 정보를 다시 로드하는 것입니다. 이제 아래처럼 load()를 추가해 다시 작성해보겠습니다.
+	let _video = document.querySelector('#testVideo');
+	_video.removeAttribute('src'); // src 프로퍼티를 제거
+	_video.src = 'b.mp4'; // 다른 미디어로 소스 변경
+	_video.load(); // 새로운 정보를 다시 로드
+	_video.play(); // 잘 동작함
+	
+
+	https://freshman.tech/custom-html5-video/
+ -->
