@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>JS24</title>
+    <script type="text/javascript">
+        window.onfocus = function () {
+            document.getElementById("AllWrap").style.backgroundColor
+                = "white";
+        }
+        window.onblur = function () {
+            document.getElementById("AllWrap").style.backgroundColor
+                = "gray";
+        }
+    </script>
+</head>
+
+<body id="AllWrap">
+    <h2>focus와 blur 이벤트</h2>
+    <hr />
+    <p>
+        브라우저 안쪽을 클릭하면 흰색배경,
+        바깥쪽을 클릭하면 회색배경이 되도록 JS코드를
+        작성하시오
+    </p>
+</body>
+
+</html>

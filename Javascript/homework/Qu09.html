@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>난수10개 생성후 최대값 구하기</h2>
+    <hr />
+    <script type="text/javascript">
+        var plots = [];
+        //난수10개 생성(중복되도 상관없음)
+        for (var i = 0; i < 10; i++) {
+            plots[i] = Math.floor(Math.random() * 100 + 1);
+        }
+        //배열출력
+        for (var i = 0; i < 10; i++) {
+            document.write(plots[i] + " ");
+        }
+        document.write("<hr/>");
+        //최대값 찾기
+        var maxNum = plots[0];//배열의 0번째값으로 기준값설정
+        for (var i = 1; i < 10; i++) {
+            if (maxNum < plots[i]) {
+                //기준값보다 큰값이 발견되면 값을 변경
+                maxNum = plots[i];
+            }
+        }
+        document.write("가장큰수는:" + maxNum);
+    </script>
+</body>
+</html>

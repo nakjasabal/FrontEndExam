@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script type="text/javascript">
+    function store() {
+        //웹스토리지 지원여부 확인
+        if (!window.localStorage) {
+            alert("웹스토리지를 지원하지 않습니다.");
+            return;
+        }
+
+        //DOM객체를 이용해서 입력값 가져오기
+        var engWord = document.getElementById("eng").value;
+        var korWord = document.getElementById("kor").value;
+        //정확한 검색을 위해 공백을 제거
+        engWord = engWord.trim();
+        korWord = korWord.trim();
+        //이미 저장된 단어가 있는지 확인
+        if (localStorage.getItem(engWord) != null) {
+            var ret = confirm(engWord + " 단어가 이미 있습니다. 수정하시겠습니까?");
+            if (ret == false) {//수정을 원치 않으면...
+                return;      //그냥 리턴...
+            }
+        }
+
+        //로컬 스토리지에 저장( 혹은 수정)
+        localStorage.setItem(engWord, korWord);//setItem(키, 밸류);
+
+        //저장후 입력값 지우기 & 포커스 이동
+        document.getElementById("eng").value = "";
+        document.getElementById("kor").value = "";
+        document.getElementById("eng").focus();
+    }
+    function viewAll() {
+        window.open("IM08myWordView.html", "viewWin", "width=500,height=600");
+    }
+    function search() {
+        //웹스토리지 지원여부 확인
+        if (!window.localStorage) {
+            alert("웹스토리지를 지원하지 않습니다.");
+            return;
+        }
+        //영어단어 입력값 검증
+        var eWord = document.getElementById("eng").value;
+        if (eWord == "") {
+            alert("영단어를 먼저 입력후 검색해주세요.");
+            document.getElementById("eng").focus();
+            return;
+        }
+        eWord = eWord.trim();
+        var kWord = localStorage.getItem(eWord);
+        if (kWord == null) {
+            alert(eWord + "는 없는 단어입니다.");
+
+            //입력값 지움. 미리 검색된 단어가 있을수 있으므로 영어, 한글 모두 지운다.
+            document.getElementById("eng").value = "";
+            document.getElementById("kor").value = "";
+            return;
+        }
+
+        //검색한 단어가 존재한다면...
+        document.getElementById("kor").value = kWord;
+    }
+    function remove() {
+        //웹스토리지 지원여부 확인
+        if (!window.localStorage) {
+            alert("웹스토리지를 지원하지 않습니다.");
+            return;
+        }
+        //영어단어 입력값 검증
+        var eWord = document.getElementById("eng").value;
+        if (eWord == "") {
+            alert("영단어를 먼저 입력후 검색해주세요.");
+            document.getElementById("eng").focus();
+            return;
+        }
+        eWord = eWord.trim();
+
+        //단어가 있는지 확인
+        if (localStorage.getItem(eWord) == null) {
+            alert(eWord + "가 없습니다");
+            return;
+        }
+
+        //단어 삭제
+        localStorage.removeItem(eWord);
+
+        //사용자 입력칸 비우기
+        document.getElementById("eng").value = "";
+        document.getElementById("kor").value = eWord + "삭제됨";
+    }
+</script>
+
+<body>
+    <h2>나만의 단어장 만들기</h2>
+    <hr />
+    <form>
+        <label>영어 <input type="text" id="eng" size="20" /></label>
+        <br />
+        <label>한글 <input type="text" id="kor" size="20" /></label>
+        <br /><br />
+        <input type="button" value="단어저장" onclick="store();" />
+        <input type="button" value="영단어검색" onclick="search();" />
+        <input type="button" value="단어삭제" onclick="remove();" />
+        <input type="button" value="전체보기" onclick="viewAll();" />
+    </form>
+</body>
+
+</html>

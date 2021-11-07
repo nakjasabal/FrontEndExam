@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>암호를 입력하세요</h2>
+    <hr>
+    <script type="text/javascript">
+        var passwd = "";
+        do {
+            passwd = prompt("암호를 입력하세요", "");
+            if (passwd == "KOSMO") {
+                break;//암호가 일치하면 loop탈출
+            }
+            alert("암호가 틀렸습니다.");
+        }
+        while (1);
+
+        document.write("암호가 일치합니다. 통과~");
+    </script>
+</body>
+</html>

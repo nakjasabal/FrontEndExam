@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>숫자의 첫째자리와 마지막자리가 같은지 비교</h2>
+    <hr />
+    <script type="text/javascript">
+        var str = prompt("숫자를 입력하세요", 0);
+
+        var num = parseInt(str);
+        var lastNum = num % 10;//숫자의 마지막자리 구함
+        var firstNum = 0;//숫자의 첫번째자리 
+
+        /* 예) 입력받은수 : 1234 -> 123.4*/
+        while (num > 0) {
+            firstNum = num % 10;
+            document.write((num / 10) + "<br/>");
+            num = Math.floor(num / 10);
+        }
+
+        if (firstNum == lastNum) {
+            document.write(str + "=>처음과 끝이 같음");
+        }
+        else {
+            document.write(str + "=>처음과 끝이 다름");
+        }
+
+    </script>
+</body>
+</html>

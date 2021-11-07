@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        table {
+            background-color: aliceblue;
+        }
+    
+        td,
+        th {
+            padding-right: 10px;
+        }
+    
+        span {
+            border: 1px solid green;
+            padding: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>나의 단어장 모두 출력</h2>
+    <hr />
+    <script type="text/javascript">
+        if (window.localStorage) {
+            var str = "<table>";
+            for (var i = 0; i < localStorage.length; i++) {
+                var key = localStorage.key(i);//키값을 가져온다.
+                var val = localStorage.getItem(key);//키값을 통해 밸류(값)을 가져온다.
+
+                str += "<tr>";
+                str += "	<td><span>" + (i + 1) + "</span></td>";
+                str += "	<th>" + key + "</th>";
+                str += "	<td>" + val + "</td>";
+                str += "</tr>";
+            }
+            str += "</table>";
+            document.write(str);
+        }
+        else {
+            alert("웹스토리지를 지원하지 않습니다.");
+        }
+    </script>
+</body>
+</html>

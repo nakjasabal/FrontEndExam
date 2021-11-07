@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>JS17</title>
+    <style>
+        div {
+            width: 150px;
+            height: 100px;
+            float: left;
+            text-align: center;
+            line-height: 100px;
+            font-weight: bold;
+            font-size: 1.0em;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>16개의 랜덤한 색 만들기</h2>
+    <hr />
+    <script type="text/javascript">
+        /*
+        Hint) background-color:rgb(255, 255, 255); 
+            이와 같은 형태로 색을 지정할 수 있다.
+        */
+        var str = "";
+        for (var i = 0; i < 16; i++) {
+
+            //색 표현을 위한 난수생성
+            var r = Math.floor(Math.random() * 256);
+            var g = Math.floor(Math.random() * 256);
+            var b = Math.floor(Math.random() * 256);
+
+            str += "<div style=\"background-color:rgb(" + r + "," + g + "," + b + ");\">";
+            str += "	rgb(" + r + "," + g + "," + b + ");";
+            str += "</div>";
+        }
+        document.write(str);
+    </script>
+
+
+</body>
+
+</html>

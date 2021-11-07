@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>JS23</title>
+    <style>
+        div {
+            position: absolute;
+        }
+
+        img {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <img src="../images/1.jpg" width="100" height="140" alt="하트A" style="z-index:;">
+        <img src="../images/2.jpg" width="100" height="140" alt="하트2" style="z-index:;">
+        <img src="../images/3.jpg" width="100" height="140" alt="하트3" style="z-index:;">
+        <img src="../images/7.jpg" width="100" height="140" alt="하트7" style="z-index:;">
+    </div>
+
+    <script>
+        //이미지 태그를 가져와서 배열로 저장
+        var imgArr = document.getElementsByTagName("img");
+        //배열을 이용해서 루프를 돌림
+        for (var i = 0; i < imgArr.length; i++) {
+            var obj = imgArr[i];
+            //z-index를 초기화
+            obj.style.zIndex = i;
+            /*
+                1번카드 -> z-index : 0
+                2번카드 -> z-index : 1
+                ~~~~
+                7번카드 -> z-index : 3 로 초기화 됨...
+            */
+
+
+            //방법1 : 리스너에 무기명 함수를 정의.
+            var obj2 = "";//주석처리를 위해 임시변수생성
+            obj2.onclick = function () {
+                for (i = 0; i < imgArr.length; i++) {
+                    var obj = imgArr[i];
+                    obj.style.zIndex++;/*
+					1번카드 -> z-index : 1
+					~~
+					7번카드 -> z-index : 4 
+				*/
+                    obj.style.zIndex %= imgArr.length;/*
+					1번카드 : 1 % 4 => 1
+					~~~
+					7번카드 : 4 % 4 => 0
+				*/
+                }
+            }
+
+            /*
+            방법2 : 리스너에 함수의 이름을 통해 연결. 이 경우
+            매개변수를 전달하는것은 불가능함.
+            */
+            obj.onclick = shuffle;
+        }
+        function shuffle() {
+            for (i = 0; i < imgArr.length; i++) {
+                var obj = imgArr[i];
+                obj.style.zIndex++;
+                obj.style.zIndex %= imgArr.length;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

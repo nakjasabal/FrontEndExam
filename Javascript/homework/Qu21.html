@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>JS25</title>
+    <script type="text/javascript">
+        function changeImg(imgName) {
+            document.getElementById("fruitImg").src =
+                "../images/" + imgName + ".png";
+        }
+    </script>
+</head>
+
+<body>
+    <h2>라디오박스를 클릭하면 이미지가 변경됩니다.</h2>
+    <hr />
+    <!-- 
+	label태그를 이용하여 텍스트 클릭으로 선택하기
+	방법1 : input의 id속성값과 label의 for속성값을
+		매칭하면 된다.
+	방법2 : input 과 텍스트 전체를 label태그로 감싼다.
+	 -->
+    <input type="radio" name="fruits" value="banana" onclick="changeImg(this.value);" id="ba" checked="checked" /><label
+        for="ba">바나나</label>
+
+    <label><input type="radio" name="fruits" value="apple" onclick="changeImg(this.value);" />사과</label>
+
+    <label><input type="radio" name="fruits" value="mango" onclick="changeImg(this.value);" />망고</label>
+
+    <br />
+    <img src="../images/banana.png" id="fruitImg" />
+</body>
+
+</html>

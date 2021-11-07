@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>JS30</title>
+    <script type="text/javascript">
+        function cal() {
+            //문제의 수식이 있는 부분을 가져온다.
+            var quArr =
+                document.getElementsByClassName("question");
+            //사용자가 입력한 정답 가져오기
+            var anArr =
+                document.getElementsByClassName("answer");
+            //정답갯수 카운트
+            var total = 0;
+
+            for (var i = 0; i < quArr.length; i++) {
+                //수식을 가져와서 계산하기
+                var calAnswer = eval(quArr[i].innerHTML);
+                //사용자가 입력한 정답
+                var userAnswer = parseInt(anArr[i].value);
+                //정답인 경우			
+                if (calAnswer == userAnswer) {
+                    //정답갯수 +1
+                    total++;
+                    /*틀렸던 문제를 다시 입력하여 정답을 
+                    맞추는경우*/
+                    quArr[i].style.textDecoration = "none";
+                }
+                else {
+                    //답이 틀린경우 문자 중간에 줄긋기
+                    quArr[i].style.textDecoration
+                        = "line-through";
+                }
+            }
+            document.getElementById("score").innerHTML
+                = "정답갯수:" + total;
+        }
+    </script>
+</head>
+
+<body>
+    <h2>산수문제를 풀어봅시다.</h2>
+    수식을 계산하여 답을 입력하고 채점 버튼을 눌러욤
+    <form>
+        <table>
+            <tr>
+                <td class="question">5*6</td>
+                <td><input type="text" class="answer" size="10" /></td>
+            </tr>
+            <tr>
+                <td class="question">7+5*3</td>
+                <td><input type="text" class="answer" size="10" /></td>
+            </tr>
+            <tr>
+                <td class="question">23*2</td>
+                <td><input type="text" class="answer" size="10" /></td>
+            </tr>
+            <tr>
+                <td class="question">35-7</td>
+                <td><input type="text" class="answer" size="10" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" onclick="cal();">
+                        채점
+                    </button>
+                </td>
+                <td>
+                    <span id="score">정답갯수:0</span>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

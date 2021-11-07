@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>문자열 배열 다루기</h2>
+    <hr />
+    <script type="text/javascript">
+
+        //배열출력을 위한 함수 정의
+        function printArray(arr) {
+            for (var i = 0; i < arr.length; i++) {
+                document.write(arr[i] + " ");
+            }
+            document.write("<br/>");
+        }
+
+        var names =
+            new Array("wonsun", "jaemoonlee", "kitae", "gracehwang");
+        /*
+        1.names 배열에 들어있는 각 이름을 출력하라
+        2.가장 긴 이름을 출력하라.
+        3.사전에서 가장 먼저 나오는 이름을 출력하라
+        4.배열을 증가순으로 재 정렬하여 출력하라.
+        */
+        document.write("<h2>1.이름출력</h2>");
+        printArray(names);
+
+        document.write("<h2>2.가장긴이름</h2>");
+        var longName = names[0];
+        for (var i = 0; i < names.length; i++) {
+            if (longName.length < names[i].length) {
+                longName = names[i];
+            }
+        }
+        document.write("가장긴이름:" + longName + "<br/>");
+
+        document.write("<h2>3.가장먼저나오는이름</h2>");
+        var preName = names[0];
+        for (var i = 0; i < names.length; i++) {
+            if (preName > names[i]) {
+                preName = names[i];
+            }
+        }
+        document.write("가장먼저나오는이름:" + preName + "<br/>");
+
+        document.write("<h2>4.증가순으로출력</h2>");
+        names.sort();
+        printArray(names);
+    </script>
+</body>
+</html>

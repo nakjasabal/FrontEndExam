@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>JS29</title>
+    <script type="text/javascript">
+        //전역변수로 선언
+        var timerID = null;
+
+        window.onload = function () {
+            var clock = document.getElementById("clock");
+            timeout(clock);
+            timerID = setInterval("timeout(clock)", 1000);
+        }
+
+        function timeout(obj) {
+            var current = new Date();
+            /*toLocaleTimeString() : 현재시간을 "오후 00:00:00"
+            포맷으로 반환해주는 함수*/
+            obj.innerHTML = current.toLocaleTimeString();
+        }
+
+        function controlClock() {
+            if (timerID == null) {
+                //시계가 멈춰있는 경우
+                timerID = setInterval("timeout(clock)", 1000);
+            }
+            else {
+                //시계가 가동되고 있는 경우
+                clearInterval(timerID);//시계를 멈춤
+                timerID = null;//시계를 멈추면 null로 초기화
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h2>div태그에 시계 만들기</h2>
+    시계를 클릭하면 멈추고, 다시 클릭하면 움직인다.
+    <hr />
+    <div id="clock" onclick="controlClock();" style="cursor:pointer;"></div>
+</body>
+
+</html>

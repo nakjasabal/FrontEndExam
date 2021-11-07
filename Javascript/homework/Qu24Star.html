@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function printStar(num) {
+            var cnum = parseInt(num);//문자를 숫자로 바꿈
+            if (cnum < 1 || isNaN(cnum)) {
+                alert("입력오류입니다.");
+                return;
+            }
+
+            //반복의횟수 구함
+            var totalCnt = cnum * 2;
+            //별출력을 위한 변수 선언
+            var starCnt = 0;
+
+            for (var i = 1; i < totalCnt; i++) {
+                if (i <= cnum) {
+                    //입력한 숫자가 될때까지는 증가
+                    starCnt = i;
+                }
+                else {
+                    starCnt = totalCnt - i;
+                }
+
+                while (starCnt > 0) {
+                    document.write("*");
+                    starCnt--;
+                }
+                //*를 한줄 찍고나서 줄바꿈 처리
+                document.write("<br/>");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>별문자 출력하기</h2>
+    정수를 입력하면 숫자만큼 *를 출력하고 다시 줄어드는
+    형태로 출력한다.
+    <hr />
+    <script type="text/javascript">
+        var starCnt = prompt("양의 정수를 입력하세요", "1");
+        printStar(starCnt);
+    </script>
+</body>
+</html>
