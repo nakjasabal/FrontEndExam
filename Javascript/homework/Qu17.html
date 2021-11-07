@@ -4,12 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <title>JS20</title>
+    <style>
+        span{visibility:hidden;}
+    </style>
     <script type="text/javascript">
         function show() {
             //span태그를 여러개 가져와서 배열형태로 저장
             var obj = document.getElementsByTagName("span");
             for (var i = 0; i < obj.length; i++) {
-                if (obj[i].style.visibility == "hidden") {
+                console.log(obj[i].style.visibility);
+                var vi = obj[i].style.visibility;
+                if (vi=="" || vi=="hidden") {
                     //숨김상태라면 보이게 처리
                     obj[i].style.visibility = "visible";
                 }
@@ -21,7 +26,6 @@
         }
     </script>
 </head>
-
 <body>
     <h3>다음 빈 곳에 숨은 단어?
         <button onclick="show()">show/hide</button>
@@ -29,10 +33,8 @@
     <hr>
     <ul>
         <li>I (<span>love</span>) you.
-        <li>CSS is Cascading
-            (<span>Style</span>) Sheet.
+        <li>CSS is Cascading (<span>Style</span>) Sheet.
         <li>응답하라 (<span>1988</span>).
     </ul>
 </body>
-
 </html>
