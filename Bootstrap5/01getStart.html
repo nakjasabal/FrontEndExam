@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <!-- 방법1 : CDN 을 사용 -->
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -20,11 +22,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     -->
 
+    <!-- 방법2 : 다운로드한 부트스트랩 core를 사용 -->
+    <!-- <link rel="stylesheet" href="./css/bootstrap.css">
+    <script src="./js/bootstrap.bundle.js"></script> -->
     <style>
         div{background-color: seagreen;}
     </style>
 </head>
 <body>
+
 
     <div class="container">
         <h1>container</h1>
@@ -32,6 +38,10 @@
             The .container class provides a responsive fixed width container
             <br>
             .container 클래스는 반응형 고정 너비 컨테이너를 제공합니다
+            <br>
+            너비( max-width)는 화면 크기에 따라 변경됩니다.
+            <br>
+            
         </p>
     </div>
 
@@ -44,14 +54,23 @@
         </p>
     </div>
 
+   
 </body>
 </html>
 <!-- 
-Breakpoint	Class infix	Dimensions
-X-Small	    None                <576px
-Small	    sm	                ≥576px
-Medium	    md	                ≥768px
-Large	    lg	                ≥992px
-Extra       large xl	        ≥1200px
-Extra       extra large	xxl	    ≥1400px
+    Extra small <576px 
+    Small ≥576px 
+    Medium ≥768px 
+    Large ≥992px 
+    Extra Large ≥1200px 
+    XXL ≥1400px 
+-->
+<!-- 
+    Breakpoint	Class infix	Dimensions
+    X-Small	    None                <576px
+    Small	    sm	                ≥576px
+    Medium	    md	                ≥768px
+    Large	    lg	                ≥992px
+    Extra       large xl	        ≥1200px
+    Extra       extra large	xxl	    ≥1400px
 -->

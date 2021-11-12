@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <script src="./js/bootstrap.bundle.js"></script>
+    <style>
+        #below div {
+            background-color: seagreen;
+        }
+    </style>
+</head>
+<body>
+    <h2>Container의 Padding/Border and Color</h2>
+    <div class="container p-5 my-5 border">
+        <h1>My First Bootstrap Page</h1>
+        <p>이 컨테이너에는 테두리와 약간의 추가 패딩 및 여백이 있습니다.</p>
+    </div>
+    
+    <div class="container p-5 my-5 bg-dark text-white">
+        <h1>My First Bootstrap Page</h1>
+        <p>이 컨테이너에는 어두운 배경색과 흰색 텍스트, 추가 패딩 및 여백이 있습니다.</p>
+    </div>
+    
+    <div class="container p-5 my-5 bg-primary text-white">
+        <h1>My First Bootstrap Page</h1>
+        <p>이 컨테이너에는 파란색 배경색과 흰색 텍스트, 추가 패딩 및 여백이 있습니다.</p>
+    </div>
+    <P>
+        색상 및 테두리에 대한 자세한 내용은 이후 유틸리티에서 배우게 될 것입니다.
+    </P>
+    
+    <h2>반응형 컨테이너</h2>
+    <p>
+        웹브라우저의 화면크기에 따른 반응형 컨테이너가 된다.
+    </p>
+    <div id="below">
+        <div class="container-sm">.container-sm</div>
+        <div class="container-md">.container-md</div>
+        <div class="container-lg">.container-lg</div>
+        <div class="container-xl">.container-xl</div>
+        <div class="container-xxl">.container-xxl</div>
+    </div>
+</body>
+</html>
+<!-- 
+Breakpoint	Class infix	Dimensions
+X-Small	None	<576px
+Small	sm	≥576px
+Medium	md	≥768px
+Large	lg	≥992px
+Extra large	xl	≥1200px
+Extra extra large	xxl	≥1400px
+-->
