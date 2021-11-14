@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        h2,
+        h3 {
+            margin: 20px 0;
+        }
+
+        div {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>프로그래스바 기본</h2>
+    <div class="progress">
+        <div class="progress-bar" style="width:70%"></div>
+    </div>
+
+    <h2>높이 지정하기</h2>
+    <div class="progress" style="height:20px">
+        <div class="progress-bar" style="width:40%;height:20px"></div>
+    </div>
+
+    <h2>진행률 숫자로 표시하기</h2>
+    <div class="progress">
+        <div class="progress-bar" style="width:70%">70%</div>
+    </div>
+
+    <h2>컬러</h2>
+    <div class="progress">
+        <div class="progress-bar bg-success" style="width:20%"></div>
+    </div>
+    <div class="progress">
+        <div class="progress-bar bg-info" style="width:30%"></div>
+    </div>
+
+    <h2>스트라이프(줄무늬) 효과</h2>
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped" style="width:40%"></div>
+    </div>
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped bg-danger" style="width:40%"></div>
+    </div>
+
+    <h2>애니메이션이 적용된 줄무늬</h2>
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:40%"></div>
+    </div>
+</div>
+</body>
+</html>

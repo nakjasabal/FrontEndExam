@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        h2, h3 {
+            margin: 20px 0;
+        }
+        div {
+            border: 1px solid pink;
+        }
+        div.box{
+            width: 100px;height: 100px;background-color: darkgoldenrod;
+        }
+        span {
+            display: inline-block;
+            width: 70px;
+            height: 70px;
+            margin: 6px;
+            background-color: #ffe44a;
+            text-align: center; overflow: hidden;
+        }/*line-height: 70px; */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>테두리 색깔(color)</h2>
+        <span class="border border-primary"></span>
+        <span class="border border-secondary"></span>
+        <span class="border border-success"></span>
+        <span class="border border-danger"></span>
+        <span class="border border-warning"></span>
+        <span class="border border-info"></span>
+        <span class="border border-light"></span>
+        <span class="border border-dark"></span>
+        <span class="border border-white"></span>
+
+        <h2>테두리 방향(direction)</h2>
+        <span class="border-danger border-top">7</span>
+        <span class="border-danger border-end">8</span>
+        <span class="border-danger border-bottom">9</span>
+        <span class="border-danger border-start">10</span>
+
+        <h2>테두리 지우기</h2>
+        <span class="border border-success">11</span>
+        <span class="border border-success border-0">12</span>
+        <span class="border border-success border-top-0">13</span>
+        <span class="border border-success border-end-0">14</span>
+        <span class="border border-success border-bottom-0">15</span>
+        <span class="border border-success border-start-0">16</span>
+        
+        
+        <h2>테두리 두께(width)</h2>
+        <span class="border border-info border-1">17</span>
+        <span class="border border-info border-2">18</span>
+        <span class="border border-info border-3">19</span>
+        <span class="border border-info border-4">20</span>
+        <span class="border border-info border-5">21</span>
+
+        <h2>둥근 테두리(radius)</h2>
+        <span class="rounded border border-secondary">전체</span>
+        <span class="rounded-top border border-secondary">top</span>
+        <span class="rounded-end border border-secondary">end</span>
+        <span class="rounded-bottom border border-secondary">bottom</span>
+        <span class="rounded-start border border-secondary">start</span>
+        <span class="rounded-circle border border-secondary">circle</span>
+        <span class="rounded-pill" style="width:130px">pill</span>
+        <span class="rounded-0 border border-secondary">round0</span>
+        <span class="rounded-1 border border-secondary">round1</span>
+        <span class="rounded-2 border border-secondary">round2</span>
+        <span class="rounded-3 border border-secondary">round3</span>
+
+        <h2>플로팅</h2>
+        <div class="clearfix">
+            <span class="float-start">left</span>
+            <span class="float-end">right</span>
+        </div>
+        
+        <h2>가운데 정렬</h2>
+        <div class="mx-auto bg-warning" style="width:150px">
+            Centered
+        </div>
+
+        <h2>width 크기 설정</h2>
+        <div class="w-25 bg-warning">Width 25%</div>
+        <div class="w-50 bg-info">Width 50%</div>
+        <div class="w-75 bg-success">Width 75%</div>
+        <div class="w-100 bg-danger">Width 100%</div>
+        <div class="w-auto bg-primary">Auto Width</div>
+        <div class="mw-100 bg-warning">Max Width 100%</div>
+
+        <h2>height 크기 설정</h2>
+        <div style="height:200px;background-color:#ddd">
+            <div class="h-25 bg-warning d-inline-block p-1">Height 25%</div>
+            <div class="h-50 bg-warning d-inline-block p-1">Height 50%</div>
+            <div class="h-75 bg-warning d-inline-block p-1">Height 75%</div>
+            <div class="h-100 bg-warning d-inline-block p-1">Height 100%</div>
+            <div class="h-auto bg-warning d-inline-block p-1">Auto Height</div>
+            <div class="mh-100 bg-warning d-inline-block p-1" style="height:500px">Max Height 100%</div>
+        </div>
+
+        <h2>간격(spacing)</h2>
+        <p><pre>
+            m : margin(마진:바깥쪽간격)
+            p : padding(패딩:안쪽간격)
+
+            t : top, b : bottom, s : left, e : right
+            x : left 와 right 동시적용
+            y : top 과 bottom 동시적용
+            blnak : 아무것도 안주면 4방향 모두 적용
+
+            사이즈 : 0~5까지 사용가능. 0~3rem 으로 차등 적용됨
+
+            em과 rem 단위의 차이
+            : 둘다 웹브라우저에 적용된 기본사이즈에 따라 유연하게 변하는 가변 단위이다. 
+            em은 단계별 상위요소의 영향을 받는 반면, rem은 최상위 요소인 html를 기준으로
+            크기가 결정된다.  
+        </pre></p>
+        <div class="row">
+            <div class="box pt-3 me-1">가</div>
+            <div class="box ps-3 me-2">나</div>
+            <div class="box p-5 me-3">다</div>
+            <div class="box px-5">라</div>
+        </div>
+
+        <h2>동영상 비율</h2>
+        <h4>1:1비율</h4>
+        <div class="ratio ratio-1x1">
+            <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+        </div>
+        
+        <h4>4:3비율</h4>
+        <div class="ratio ratio-4x3">
+            <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+        </div>
+        
+        <h4>16:9비율</h4>
+        <div class="ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+        </div>
+        
+        <h4>21:9비율</h4>
+        <div class="ratio ratio-21x9">
+            <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+        </div>
+    </div>
+</body>
+</html>

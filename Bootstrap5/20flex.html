@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <!-- 
+        부트스트랩5는 기존 3,4와는 다르게 플로팅 대신 플렉스박스를 사용해서 레이아웃을 처리한다. 플렉스박스는 IE9 이하를 지원하지 않는다. 
+     -->
+    <h2>블럭 형태의 플렉스 박스</h2>
+    <div class="d-flex p-3 bg-secondary text-white">
+        <div class="p-2 bg-info">Flex item 1</div>
+        <div class="p-2 bg-warning">Flex item 2</div>
+        <div class="p-2 bg-primary">Flex item 3</div>
+    </div>
+    
+    <h2>인라인 형태의 플렉스 박스</h2>
+    <div class="d-inline-flex p-3 bg-secondary text-white">
+        <div class="p-2 bg-info">Flex item 1</div>
+        <div class="p-2 bg-warning">Flex item 2</div>
+        <div class="p-2 bg-primary">Flex item 3</div>
+    </div>
+
+    <h2>수평 방향 정렬</h2>
+    <div class="d-flex flex-row bg-secondary">
+        <div class="p-2 bg-info">Flex item 1</div>
+        <div class="p-2 bg-warning">Flex item 2</div>
+        <div class="p-2 bg-primary">Flex item 3</div>
+    </div>
+    
+    <div class="d-flex flex-row-reverse bg-secondary">
+        <div class="p-2 bg-info">Flex item 1</div>
+        <div class="p-2 bg-warning">Flex item 2</div>
+        <div class="p-2 bg-primary">Flex item 3</div>
+    </div>
+    <script>
+        function myBoot1(args, flag){
+            var d = document.getElementById('elm1');
+            if(flag==1){
+                //d.className += args+' ';
+                d.classList.add(args);
+            }
+            else if(flag==2){
+                d.classList.remove(args);
+            }
+        }
+    </script>
+    <button onclick="myBoot1('d-flex', 1);">클래스추가1</button>
+    <button onclick="myBoot1('bg-secondary', 1);">클래스추가2</button>
+    <button onclick="myBoot1('flex-row-reverse', 1);">클래스추가3</button>
+    <button onclick="myBoot1('d-flex', 2);">클래스삭제1</button>
+    <button onclick="myBoot1('bg-secondary', 2);">클래스삭제2</button>
+    <button onclick="myBoot1('flex-row-reverse', 2);">클래스삭제3</button>
+    <div id="elm1" class="">
+        <div class="p-2 bg-info">Flex item 1</div>
+        <div class="p-2 bg-warning">Flex item 2</div>
+        <div class="p-2 bg-primary">Flex item 3</div>
+    </div>
+
+    <h2>컨텐츠 배분</h2>
+    <h4>기본</h4>
+    <div class="d-flex justify-content-start bg-secondary mb-3">
+        <div class="p-2 bg-info">Flex item 1</div>
+        <div class="p-2 bg-warning">Flex item 2</div>
+        <div class="p-2 bg-primary">Flex item 3</div>
+    </div>
+    <h4>오른쪽</h4>
+    <div class="d-flex justify-content-end bg-secondary mb-3">
+        <div class="p-2 bg-info">Flex item 1</div>
+        <div class="p-2 bg-warning">Flex item 2</div>
+        <div class="p-2 bg-primary">Flex item 3</div>
+    </div>
+    <h4>가운데</h4>
+    <div class="d-flex justify-content-center bg-secondary mb-3">
+        <div class="p-2 bg-info">Flex item 1</div>
+        <div class="p-2 bg-warning">Flex item 2</div>
+        <div class="p-2 bg-primary">Flex item 3</div>
+    </div>
+    <h4>양쪽배분</h4>
+    <div class="d-flex justify-content-between bg-secondary mb-3">
+        <div class="p-2 bg-info">Flex item 1</div>
+        <div class="p-2 bg-warning">Flex item 2</div>
+        <div class="p-2 bg-primary">Flex item 3</div>
+    </div>
+    <h4>양쪽 배분시 여백 있음</h4>
+    <div class="d-flex justify-content-around bg-secondary mb-3">
+        <div class="p-2 bg-info">Flex item 1</div>
+        <div class="p-2 bg-warning">Flex item 2</div>
+        <div class="p-2 bg-primary">Flex item 3</div>
+    </div>
+
+    <h2>동일한 크기로 영역 채우기</h2>
+    <div class="d-flex">
+        <div class="p-2 bg-info flex-fill">Flex item 1</div>
+        <div class="p-2 bg-warning flex-fill">Flex item 2</div>
+        <div class="p-2 bg-primary flex-fill">Flex item 3</div>
+    </div>
+
+    <h2>남은 영역 채우기</h2>
+    <div class="d-flex">
+        <div class="p-2 bg-info ">Flex item 1</div>
+        <div class="p-2 bg-warning ">Flex item 2</div>
+        <div class="p-2 bg-primary flex-grow-1">Flex item 3</div>
+    </div>
+
+    <h2>정렬하기</h2>
+    <div class="d-flex bg-secondary">
+        <div class="p-2 bg-info order-3">Flex item 1</div>
+        <div class="p-2 bg-warning order-2">Flex item 2</div>
+        <div class="p-2 bg-primary order-1">Flex item 3</div>
+    </div>
+
+    <h2>자동여백</h2>
+    <p>
+        공간이 충분한 경우 왼쪽으로 혹은 오른쪽으로 밀어 정렬할수 있다. 
+        ms-auto : margin start(left) auto
+        me-auto : margin end(right) auto 
+    </p>
+    <div class="d-flex bg-secondary">
+        <div class="p-2 ms-auto bg-info">Flex item 1</div>
+        <div class="p-2 bg-warning">Flex item 2</div>
+        <div class="p-2 bg-primary">Flex item 3</div>
+    </div>
+    
+    <div class="d-flex bg-secondary">
+        <div class="p-2 bg-info">Flex item 1</div>
+        <div class="p-2 bg-warning">Flex item 2</div>
+        <div class="p-2 me-auto bg-primary">Flex item 3</div>
+    </div>
+
+    <h2>컨텐츠(content) 정렬</h2>
+    <script>
+        function myBoot2(args) {
+            var d = document.getElementById('elm2');
+
+            d.classList.remove('align-content-start'); 
+            d.classList.remove('align-content-end'); 
+            d.classList.remove('align-content-center'); 
+            d.classList.remove('align-content-between'); 
+            d.classList.remove('align-content-around'); 
+            d.classList.remove('align-content-stretch'); 
+            
+            d.classList.add(args);           
+        }
+    </script>
+    <button onclick="myBoot2('align-content-start');">클래스추가1</button>
+    <button onclick="myBoot2('align-content-end');">클래스추가2</button>
+    <button onclick="myBoot2('align-content-center');">클래스추가3</button>
+    <button onclick="myBoot2('align-content-between');">클래스추가4</button>
+    <button onclick="myBoot2('align-content-around');">클래스추가5</button>
+    <button onclick="myBoot2('align-content-stretch');">클래스추가6</button>
+    <div id="elm2" class="d-flex flex-wrap bg-light" style="height:300px">
+        <div class="p-2 border">Flex item 1</div>
+        <div class="p-2 border">Flex item 2</div>
+        <div class="p-2 border">Flex item 3</div>
+        <div class="p-2 border">Flex item 4</div>
+        <div class="p-2 border">Flex item 5</div>
+        <div class="p-2 border">Flex item 6</div>
+        <div class="p-2 border">Flex item 7</div>
+        <div class="p-2 border">Flex item 8</div>
+        <div class="p-2 border">Flex item 9</div>
+        <div class="p-2 border">Flex item 10</div>
+        <div class="p-2 border">Flex item 11</div>
+        <div class="p-2 border">Flex item 12</div>
+        <div class="p-2 border">Flex item 13 </div>
+        <div class="p-2 border">Flex item 14</div>
+        <div class="p-2 border">Flex item 15</div>
+        <div class="p-2 border">Flex item 16</div>
+        <div class="p-2 border">Flex item 17</div>
+        <div class="p-2 border">Flex item 18</div>
+        <div class="p-2 border">Flex item 19</div>
+        <div class="p-2 border">Flex item 20</div>
+        <div class="p-2 border">Flex item 21</div>
+        <div class="p-2 border">Flex item 22</div>
+        <div class="p-2 border">Flex item 23</div>
+        <div class="p-2 border">Flex item 24</div>
+        <div class="p-2 border">Flex item 25</div>
+    </div>
+
+    <h2>항목(item) 정렬</h2>
+    직접만들어보기
+
+    <h2>셀프(self) 정렬</h2>
+    직접 만들어 보기
+</div>
+</body>
+</html>

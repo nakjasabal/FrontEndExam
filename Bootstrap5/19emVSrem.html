@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html{ font-size: 12px;}
+        body{ font-size: 1.5em;}
+        .p1{ font-size: 2em;}
+        .p2{ font-size: 2rem;}
+    </style>
+</head>
+<body>
+    <h1>em과 rem의 차이를 알아봅시다.</h1>
+    <h2>em 단위 설정</h2>
+    <p>
+        html의 사이즈 12px, body는 상위요소인 html의 1.5배인 18px, 
+        p1은 body의 2배이므로 36px이 된다. 
+        즉 em은 상위요소를 상속하듯 영향을 받는다. 
+    </p>
+    <div>
+        폰트 사이즈 1.5em(18px) = 기본12px * 1.5
+    </div>
+    <div style="font-size: 18px;">
+        폰트 사이즈 18px로 지정함
+    </div>
+    <div class="p1">
+        폰트 사이즈 2em = 기본12px * 1.5 * 2
+    </div>
+    <div style="font-size: 36px;">
+        폰트 사이즈 36px로 지정함
+    </div>
+
+    <h2>rem 단위 설정</h2>
+    <p>
+        rem단위는 문서의 최상위 요소, 즉 html 요소의 크기의 몇 배인지 설정한다. 
+    </p>
+    <div class="p2">
+        폰트 사이즈 2rem = 기본12px * 2
+    </div>
+    <div style="font-size: 24px;">
+        폰트 사이즈 24px로 지정함
+    </div>
+</body>
+</html>
