@@ -14,41 +14,57 @@
             context = canvas.getContext("2d");
             context.lineWidth = document.getElementById("widthInput").value;
             context.strokeStyle = document.getElementById("colorInput").value;
-
-            canvas.addEventListener("mousemove", function (e) { move(e) }, false);
-            canvas.addEventListener("mousedown", function (e) { down(e) }, false);
-            canvas.addEventListener("mouseup", function (e) { up(e) }, false);
-            canvas.addEventListener("mouseleave", function (e) { leave(e) }, false);
+            
+            canvas.addEventListener("mousedown", function (e) { 
+                //console.log(e);
+                down(e); 
+            });
+            canvas.addEventListener("mouseup", function (e) { 
+                //console.log(e);
+                up(e); 
+            });
+            canvas.addEventListener("mousemove", function (e) { 
+                //console.log(e);
+                move(e); 
+            });
+            canvas.addEventListener("mouseout", function (e) { 
+                //console.log(e);
+                out(e); 
+            });
         }
 
-        var startX = 0, startY = 0; dragging = false;
-        var prevX = 0, prevY = 0; // 마우스의 마지막 포인터 좌표
+        dragging = false;//라인 생성 플레그. false면 그리지 않음.
+        var startX = 0, startY = 0; //마우스의 시작 좌표
+        var prevX = 0, prevY = 0; //마우스의 마지막 포인터 좌표
         
         function move(e) { // e는 MouseEvent 객체
             var curX = e.offsetX;//마우스의 위치를 가져온다. 
             var curY = e.offsetY;
-
+            
+            //그림을 그리지 않는 상태라면..
             if (!dragging) {
+                //앞에서 얻어온 마우스 위치를 이전 위치로 설정한다. 
                 prevX = curX; prevY = curY;
+                //즉, 이전과 현재가 동일한 좌표가 되어 그림이 그려지지 않는다. 
             }
             context.beginPath();
-            context.moveTo(prevX, prevY);
-            context.lineTo(curX, curY);
-            context.stroke();
+            context.moveTo(prevX, prevY);//이전 좌표에서
+            context.lineTo(curX, curY);//현재 좌표까지 라인을 생성한 후
+            context.stroke();//색칠한다. 
             prevX = curX; prevY = curY;
         }
-        function down(e){
+        function down(e){//마우스를 누르면..
             startX = e.offsetX;
             startY = e.offsetY;
-            dragging = true;
+            dragging = true;//그림을 그린다.
         }
-        function up(e) {
-            dragging = false;
+        function up(e) {//마우스를 눌렀다 때면..
+            dragging = false;//그림을 그리지 않는다. 
             prevX = e.offsetX;
             prevY = e.offsetY;
         }
-        function leave(e) {
-            dragging = false;
+        function out(e) {//마우스가 캔버스를 벗어나면..
+            dragging = false;//그림을 그리지 않는다. 
         }
     </script>    
 </head>
