@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../common/jquery/jquery-3.6.0.js"></script>
+    <script>
+    $(function () {
+        $('#btnXml').click(function () {
+            $.get(
+                './common/02covid19.xml',//요청URL
+                //파라미터는 없으므로 생략가능함.
+                function (data) {//콜백메소드
+                    //요청성공시 xml파일의 모든 내용을 파라미터를 통해 전달해준다.
+                    console.log(data);
+ 
+                }
+            );
+        });
+    });
+
+    function locationGo() {
+        window.open('./common/02covid19.xml', '', 'width=500,height=500');
+    }
+    </script>
+</head>
+<body>
+<div>
+    <h2>$.get() 메소드 사용하기</h2>
+
+    <h3>xml파일 읽어오기</h3>
+    <button onclick="locationGo();">코로나정보.xml바로가기</button>
+    <button id="btnXml">XML데이터 읽어오기</button>
+    <div class="displayDiv" id="xmlDisplay">
+        XML데이터 정보를 디스플레이합니다.
+    </div>
+</div>
+</body>
+</html>
